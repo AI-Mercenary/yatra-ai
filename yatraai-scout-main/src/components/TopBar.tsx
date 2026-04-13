@@ -24,7 +24,7 @@ const TopBar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 right-0 left-0 md:left-[260px] h-14 z-30 flex items-center justify-end px-4 md:px-6 gap-2 md:gap-3 glass-card border-b border-border/50 backdrop-blur-md pl-16 md:pl-6">
+    <header className="fixed top-0 right-0 left-0 md:left-[260px] h-14 z-30 flex items-center justify-end px-4 md:px-6 gap-2 md:gap-3 bg-background/95 border-b border-border/60 pl-16 md:pl-6">
       {/* Theme Toggle */}
       <button
         onClick={toggleTheme}
