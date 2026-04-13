@@ -67,23 +67,25 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
           {/* Sidebar Tabs */}
-          <div className="md:col-span-1 space-y-1">
+          <div className="md:col-span-1">
+            <div className="flex md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0 md:space-y-1">
             {tabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   activeTab === tab.id 
                     ? "bg-primary text-primary-foreground shadow-lg" 
                     : "text-muted-foreground hover:bg-muted"
                 }`}
               >
                 <tab.icon fontSize="small" />
-                {tab.label}
+                <span className="whitespace-nowrap">{tab.label}</span>
               </button>
             ))}
+            </div>
           </div>
 
           {/* Tab Content */}

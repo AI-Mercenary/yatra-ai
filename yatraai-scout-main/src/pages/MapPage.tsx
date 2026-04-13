@@ -178,17 +178,18 @@ const MapPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto h-[calc(100vh-6rem)] flex flex-col">
+    <div className="max-w-6xl mx-auto flex flex-col" style={{ height: "calc(100svh - 7rem)" }}>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex-shrink-0">
-        <h1 className="text-3xl font-display font-bold text-foreground mb-2 flex items-center gap-3">
-          <MapIcon fontSize="large" className="text-secondary" /> Map Explorer
+        <h1 className="text-xl md:text-3xl font-display font-bold text-foreground mb-1 flex items-center gap-2">
+          <MapIcon fontSize="medium" className="text-secondary" /> Map Explorer
         </h1>
-        <p className="text-muted-foreground mb-4">Interactive mapping, routing, and nearby discovery powered by OpenStreetMap.</p>
+        <p className="text-muted-foreground text-sm mb-3 hidden md:block">Interactive mapping, routing, and nearby discovery powered by OpenStreetMap.</p>
       </motion.div>
       
-      <div className="flex-1 flex flex-col md:flex-row gap-4 overflow-hidden">
+      <div className="flex-1 flex flex-col md:flex-row gap-4 overflow-y-auto md:overflow-hidden">
+        {/* Map first on mobile, then controls, then hotel sidebar */}
         {/* Sidebar Controls */}
-        <div className="w-full md:w-1/3 flex flex-col gap-4 overflow-y-auto pr-2 pb-4">
+        <div className="w-full md:w-1/3 flex flex-col gap-4 md:overflow-y-auto pr-0 md:pr-2 pb-4 order-2 md:order-1">
           <div className="glass-card-solid p-4 rounded-xl">
             <h2 className="font-bold mb-3 flex items-center gap-2"><Route fontSize="small"/> Route Planner</h2>
             <div className="space-y-2">
@@ -229,7 +230,7 @@ const MapPage = () => {
         </div>
         
         {/* Map Container */}
-        <div className="w-full md:w-2/3 glass-card-solid rounded-xl overflow-hidden shadow-lg h-full relative z-0">
+        <div className="w-full md:w-2/3 glass-card-solid rounded-xl overflow-hidden shadow-lg h-[350px] md:h-full relative z-0 order-1 md:order-2">
            <MapContainer 
              center={position} 
              zoom={13} 
@@ -257,7 +258,7 @@ const MapPage = () => {
         </div>
 
         {/* Info & Booking Sidebar */}
-        <div className="w-full md:w-1/3 flex flex-col gap-6">
+        <div className="w-full md:w-1/3 flex flex-col gap-6 order-3">
            <div className="glass-card-solid rounded-xl p-5 border border-border/50">
                 <h3 className="text-sm font-bold text-foreground mb-4 flex justify-between">
                   <span>Stay Budget Filter</span>

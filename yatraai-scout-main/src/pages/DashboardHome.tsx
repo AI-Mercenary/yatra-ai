@@ -40,13 +40,13 @@ const DashboardHome = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-3xl gradient-hero-bg p-8 text-primary-foreground shadow-2xl"
+        className="relative overflow-hidden rounded-3xl gradient-hero-bg p-5 md:p-8 text-primary-foreground shadow-2xl"
       >
         <div className="relative z-10 max-w-2xl">
-          <h1 className="text-4xl font-display font-bold mb-4">
+          <h1 className="text-2xl md:text-4xl font-display font-bold mb-3">
             Welcome back, {user?.displayName || "Explorer"}!
           </h1>
-          <p className="text-primary-foreground/80 text-lg mb-6 leading-relaxed">
+          <p className="text-primary-foreground/80 text-sm md:text-lg mb-5 leading-relaxed max-w-lg">
             Your intelligence-powered heritage journey continues. Explore, identify, and document India's finest landmarks with YatraAI Scout Pro.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -62,8 +62,8 @@ const DashboardHome = () => {
             </Link>
           </div>
         </div>
-        <div className="absolute right-[-10%] bottom-[-20%] opacity-10">
-          <Brain style={{ fontSize: "300px" }} />
+        <div className="absolute right-[-5%] bottom-[-15%] opacity-10 hidden sm:block">
+          <Brain style={{ fontSize: "220px" }} />
         </div>
       </motion.div>
 
